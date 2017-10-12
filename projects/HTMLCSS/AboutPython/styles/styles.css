@@ -9,7 +9,7 @@
     width: 970px;
     margin: 0px auto;
     background-color: #2b5b84;
-    padding: 20px;
+    /* padding: 20px; */
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -21,15 +21,17 @@ header img {
 
 .topRightHandCorner {
     float: right;
-    padding: 10px;
+    margin: 5px;
+    /* padding: 10px; */
 }
 
     .textSize {
-        padding: 20px;
+        /* padding: 10px; */
         display: block;
         width: 200px;
         text-align: right;
         color: white;
+        float:right;
     }
 
     .textSize a {
@@ -37,10 +39,13 @@ header img {
     }
 
     .search{
+        margin-top: 20px;
+        padding: 20px;
         background-color: rgb(59, 50, 50);
         display: block;
         width: 320px;
         border-radius: 10px;
+        box-shadow: 2px 2px 2px black;
     }
 
     .search input[type=text], select {
@@ -90,6 +95,7 @@ header img {
 
 .generalStuff{
     display: block;
+    margin: 20px;
 }
 
     .leftNavigation{
@@ -166,6 +172,10 @@ header img {
     padding: 10px;
     float: right;
     width: 45%;
+}
+
+footer {
+    margin-bottom: 20px;
 }
 
 footer nav{
