@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .wrapper{
+            background-color: silver;
+            width: 970px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .gameTileRow{
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        img{
+            height: 235px;
+            width: auto;
+            border: 2px solid gray;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            // alert('jQuery Loaded!');
+
+            $('img').click(function($this){
+                $(this).hide();
+            });
+
+            $('#restore').click(function(){
+                $('.gameTile').show();
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="gameTileRow">
+            <img class="gameTile" src="images/ninja.jpg" id="ninja1"/>
+            <img class="gameTile" src="images/ninja.jpg" id="ninja2"/>
+            <img class="gameTile" src="images/ninja.jpg" id="ninja3"/>
+            <img class="gameTile" src="images/ninja.jpg" id="ninja4"/>
+        </div>    
+        <div class="gameTileRow">
+            <img class="gameTile" src="images/ninja.jpg" id="ninja5"/>
+            <img class="gameTile" src="images/ninja.jpg" id="ninja6"/>
+            <img class="gameTile" src="images/ninja.jpg" id="ninja7"/>
+            <img class="gameTile" src="images/ninja.jpg" id="ninja8"/>            
+        </div>
+        <div>
+            <button id="restore">Restore!</button>
+        </div>
+    </div>
+</body>
+</html>
