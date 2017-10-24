@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Contact Card</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="./script.js"></script>
+    <style type="text/css">
+        *{
+            padding: 0;
+            margin: 0;
+
+            /* border: 1px dotted green; */
+        }
+
+        #wrapper{
+            display: block;
+            width: 970px;
+            height: 2000px;
+            background-color: silver;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .leftPane{
+            margin-top: 30px;
+            padding: 30px;
+            display: inline-block;
+            height: 1000px;
+            width: 40%;
+        }
+
+        .contactCards{
+            display: inline-block;
+            margin-top: 30px;
+            padding: 30px;
+            vertical-align: top;
+            height: 1000px;
+            width: 40%;
+        }
+
+        .contactCard{
+            padding: 30px;
+            height: 200px;
+            width: auto;
+            border: 2px solid gray;
+            margin-top: 30px;
+        }
+
+        .userForm{
+            margin-top: 20px;
+            padding: 20px;
+            height: 400px;
+            width: auto;
+            border: 2px solid gray;
+        }
+
+        .submit{
+            width: 100px;
+            height: 40px;
+        }
+
+        .contactDescription {
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <div class="leftPane">
+            <h3>Add New Users</h3>
+            <div class="userForm">
+                <form id="addUserForm" action="./adduser.php" method="post">
+                    First Name:<br>
+                    <input type="text" name="firstName" value="" /><br><br>
+                    Last Name:<br>
+                    <input type="text" name="lastName" value="" /><br><br>
+                    Email Address:<br>
+                    <input type="text" name="email" value="" /><br><br>
+                    Phone Number:<br>
+                    <input type="text" name="phoneNumber" value="" /><br><br>
+                    Description:<br>
+                    <textarea name="description" rows="4" cols="40">
+                    </textarea><br><br>
+                    <input class="submit" type="submit" value="submit" />
+                </form>
+            </div>
+        </div>
+        <div class="contactCards">
+        </div>
+    </div>
+</body>
+</html>
