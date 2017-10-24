@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Users</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="./script.js"></script>
+    <style type="text/css">
+        /* .userTable{
+            border: 2px solid gray;
+            width: 30%;
+            display: inline-block;
+        } */
+        table {
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
+    
+</head>
+<body>
+    <h1>Users</h1>
+    <div class="userTable">
+        <table>
+            <tr>
+                <td>
+                    First Name
+                </td>
+                <td>
+                    Last Name
+                </td>
+                <td>
+                    Email Address
+                </td>
+                <td>
+                    Contact #
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div>
+        <h1>Add User</h1>
+        <form id="userForm" action="" method="get">
+            First name:<br>
+            <input type="text" name="firstname" value=""><br>
+            Last name:<br>
+            <input type="text" name="lastname" value=""><br>
+            Email Address:<br>
+            <input type="text" name="email" value=""><br>
+            Contact Number:<br>
+            <input type="text" name="phoneNumber" value=""><br><br>
+            <input id="submitBtn" type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>
