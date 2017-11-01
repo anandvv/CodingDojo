@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Weather App</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="./script.js"></script>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        #wrapper{
+            width: 970px;
+            height: 1050px;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: silver;
+        }
+
+        h1 {
+            padding: 25px 20px;
+        }
+
+        #inputCity{
+            margin: 25px 20px;
+            width: 300px;
+            height: 50px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 1em;
+        }
+
+        #getDataButton{
+            display: block;
+            margin: 25px 20px;
+            width: 100px;
+            height: 50px;
+            background-color: lightgreen;
+        }
+
+        #content{
+            margin: 25px 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <h1>Anand's Weather App</h1>
+        <input id="inputCity" type="text" name="city" />
+        <button id="getDataButton">Get Weather</button> 
+
+        <div id="content">
+        </div>
+    </div>
+</body>
+</html>
