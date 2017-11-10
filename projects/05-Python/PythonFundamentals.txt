@@ -1,0 +1,35 @@
+1) pip install Django
+	Django is a free and open source Web Development Framework that allow for rapid web development with less code. It calims to be ridiculously fast, secure and scalable.
+
+2) pip list
+	This lists all of the packages currently installed on my system. 
+click (6.7)
+Django (1.11.6)
+Flask (0.12.2)
+itsdangerous (0.24)
+Jinja2 (2.9.6)
+MarkupSafe (1.0)
+pip (9.0.1)
+pytz (2017.3)
+setuptools (28.8.0)
+Werkzeug (0.12.2)
+
+3) pip install Django
+	Running this command again lets us know that it is currently already installed in the site-packages folder of our python installation.
+
+Requirement already satisfied: Django in c:\python27\lib\site-packages
+Requirement already satisfied: pytz in c:\python27\lib\site-packages (from Django)
+
+4) pip freeze 
+	How's this different from list?
+freeze                      Output installed packages in requirements format.
+list                        List installed packages.
+
+5) pip uninstall Django
+
+6) pip show Django
+	Nothing to show
+
+7) pip search Flask
+	Searches and lists all the packages that have the word Flask in it.
+
