@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dojos</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/myStyle.css')}}" >
+    <script type="text/javascript" src="{{ url_for('static', filename='js/myscript.js') }}" >
+    </script>
+</head>
+<body>
+    <form name="dojoForm" action="">
+        FirstName:
+        <input type="text" name="firstName">
+        <br>
+        LastName:
+        <input type="text" name="lastName">
+        <br>
+        <button type="submit">Add New Ninja!</button>
+    </form>
+</body>
+</html>
