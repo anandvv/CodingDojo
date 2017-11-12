@@ -8,7 +8,7 @@ app = Flask(__name__)
 # we are attaching the hello_world function to the '/' route
 @app.route('/')
 def hello_world():
-    return render_template('index.html')
+    return render_template('index.html', name='Anand')
 
 
 @app.route('/success')
