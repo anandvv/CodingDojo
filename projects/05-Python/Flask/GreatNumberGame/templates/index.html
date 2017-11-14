@@ -28,6 +28,14 @@
         <p>
             <h3>{{ session['message'] }}</h3>
         </p>
+
+        {% if session['gameOver'] == True %}
+            <form action="/">
+                <p>
+                    <input type="submit" value="Play Again">
+                </p>
+            </form>
+        {% endif %}
     </div>
 </body>
 </html>

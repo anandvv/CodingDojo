@@ -14,6 +14,7 @@ def index():
     if not session.get('firstVisit'):
         session['message'] = ''
         session['firstVisit'] = True
+        session['gameOver'] = False
 
     return render_template("index.html")
 # this route will handle our form submission
@@ -37,6 +38,9 @@ def index_post():
         # session.pop('message')
         session['message'] = "Too high"
     else:
+        session['gameOver'] = True
+        session.pop('someKey')
+        session.pop('firstVisit')
         session['message'] = "Yay! You guessed it."
 
     return render_template("index.html")
