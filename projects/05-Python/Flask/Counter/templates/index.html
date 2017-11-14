@@ -9,5 +9,15 @@
     <p>
         <h3>{{ session['counter'] }} time(s).</h3>
     </p>
+    <p>
+        <form action="/addtwo" name="counterForm">
+            <input name="plusTwo" type="submit" value="<<---- +2 ----->>">
+        </form>
+    </p>
+    <p>
+        <form action="/reset" name="counterForm">
+            <input name="reset" type="submit" value="RESET">
+        </form>
+    </p>
 </body>
 </html>

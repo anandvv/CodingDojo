@@ -18,6 +18,19 @@ def index():
 # notice how we defined which HTTP methods are allowed by this route
 
 
+@app.route('/addtwo')
+def addtwo():
+    session['counter'] += 1
+
+    return redirect("/")
+
+
+@app.route('/reset')
+def reset():
+    session['counter'] = 0
+
+    return redirect("/")
+
 if __name__ == '__main__':
     # Check the System Type before to decide to bind
     # If the system is a Linux machine -:)
