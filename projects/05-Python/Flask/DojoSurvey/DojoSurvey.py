@@ -1,8 +1,8 @@
 import platform
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, flash
 
 app = Flask(__name__)
-
+app.secret_key = "ItsGotToBeASecret"
 
 @app.route('/')
 def index():
@@ -18,9 +18,21 @@ def result():
     # about forms
     propertyBag = {}
     propertyBag['name'] = request.form['name']
+    if len(request.form['name']) < 1:
+        flash("Name cannot be empty!")
+        return redirect("/")
+
     propertyBag['dojoLocation'] = request.form['dojoLocation']
     propertyBag['favoriteLanguage'] = request.form['favoriteLanguage']
     propertyBag['comment'] = request.form['comment']
+    print "Comment Length: ", len(request.form['comment'])
+    if len(request.form['comment']) < 1:
+        flash("Comment cannot be empty!")
+        return redirect("/")
+
+    if len(request.form['comment']) > 120:
+        flash("Comments too long. Keep it under 120 characters!")
+        return redirect("/")
     # print name, dojoLocation, favoriteLanguage, comment
 
     return render_template("result.html", propertyBag=propertyBag)

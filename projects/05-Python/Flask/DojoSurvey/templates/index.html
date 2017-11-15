@@ -6,6 +6,14 @@
       <h1>Survey</h1>
       <!-- read on to learn about form actions, we'll talk about the method in a later section -->
     <form action='/result' method='post'>
+        {% with messages = get_flashed_messages() %}
+            {% if messages  %}
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
         Your Name: <input type='text' name='name'>
         <br>
         <br>
@@ -26,7 +34,7 @@
         <br>
         <br>
         Comment (optional):
-        <textarea name="comment">
+        <textarea name="comment" value="">
         </textarea>
         <br>
         <br>
