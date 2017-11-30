@@ -39,7 +39,9 @@ def index():
 
         for post in posts:
             post_id = post['id']
-            query = "SELECT * FROM comments c " \
+            query = "SELECT c.id, c.comment, c.user_id, u.username FROM comments c " \
+                    "JOIN users u " \
+                    "ON c.user_id = u.id " \
                     "WHERE post_id = :postid " \
                     "ORDER BY c.created_at ASC"
             data = {
