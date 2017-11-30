@@ -29,7 +29,7 @@
                     <table>
                         <tr>
                             <td>
-                                <textarea name="post">
+                                <textarea name="post" cols="80" rows="4">
                                 </textarea>
                             </td>
                         </tr>
@@ -43,7 +43,42 @@
             </p>
             <p>
                 <table>
-                    {{ posts }}
+                {% if posts %}
+                    {% for post in posts %}
+                        <tr>
+                            <td width="20%">
+                                {{ post['username'] }}
+                            </td>
+                            <td width="75%">
+                                {{ post['post'] }}
+                            </td>
+                        </tr>
+                        {% if post['comments'] %}
+                            {% for comment in post['comments'] %}
+                            <tr>
+                                <td></td>
+                                <td>
+                                    {{ comment['comment'] }}
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        {% endif %}
+                        <tr>
+                            <td></td>
+                            <td>
+                                <form action="/comments/{{ post['id'] }}" method="post">
+                                    <textarea name="comment" cols="50" rows="3">
+                                    </textarea>
+                                    <br>
+                                    <input value="Submit Comment" type="submit" />
+                                </form>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                        </tr>
+                    {% endfor %}
+                {% endif %}
                 </table>
             </p>
         </div>
