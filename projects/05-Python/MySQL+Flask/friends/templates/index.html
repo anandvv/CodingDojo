@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Full Friends</title>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <form action="/friends" method="post">
+                <td><input type="text" name="first_name" value="" /> </td>
+                <td><input type="text" name="last_name" value="" /> </td>
+                <td><input type="text" name="email" value="" /> </td>
+                <td><input type="submit" value="Add New Friend" /> </td>
+            </form>
+        </tr>
+    </table>
+    <table border="1">
+        {% for friend in friends %}
+            <tr>
+                <form action="/friends/{{ friend['id'] }}/edit" method="get">
+                    <td><input type="text" name="first_name" value="{{friend['first_name']}}" /></td>
+                    <td><input type="text" name="last_name" value="{{friend['last_name']}}" /></td>
+                    <td><input type="text" name="email" value="{{friend['email']}}" /></td>
+                    <td><input type="submit" value="Update" /></td>
+                </form>
+                <form action="/friends/{{ friend['id'] }}/delete" method="get">
+                    <td><input type="submit" value="Delete" /></td>
+                </form>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

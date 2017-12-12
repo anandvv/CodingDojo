@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login and Registration</title>
+</head>
+<body>
+    {% if session['userid'] > 0 %}
+    <table width="100%">
+        <tr>
+            <td align="left"></td>
+            <td align="right"><a href="/logout">Logout</a></td>
+        </tr>
+    </table>
+    {% endif %}
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <p>{{message}}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    {% if session['userid'] > 0 %}
+        <h2>Welcome, {{ session['username'] }}</h2>
+    {% else %}
+        <form action="/login" method="post">
+            <table>
+                <tr>
+                    <td><input type="text" name="username"/></td>
+                    <td><input type="password" name="password" /></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="Login" /> </td>
+                </tr>
+            </table>
+        </form>
+    {% endif %}
+</body>
+</html>

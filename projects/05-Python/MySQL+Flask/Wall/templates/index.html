@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login and Registration</title>
+</head>
+<body>
+    {% if session['userid'] > 0 %}
+    <table width="100%">
+        <tr>
+            <td align="left"></td>
+            <td align="right"><a href="/logout">Logout</a></td>
+        </tr>
+    </table>
+    {% endif %}
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <p>{{message}}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    {% if session['userid'] > 0 %}
+        <h2>Welcome, {{ session['username'] }}</h2>
+        <div id="wall">
+            <p>
+                <form action="/posts" method="post">
+                    <table>
+                        <tr>
+                            <td>
+                                <textarea name="post" cols="80" rows="4">
+                                </textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="submit" value="Submit Post" />
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </p>
+            <p>
+                <table>
+                {% if posts %}
+                    {% for post in posts %}
+                        <tr>
+                            <td width="10%">
+                                {{ post['username'] }}
+                            </td>
+                            <td width="10%">
+                                &nbsp;
+                            </td>
+                            <td width="80%">
+                                {{ post['post'] }}
+                            </td>
+                        </tr>
+                        {% if post['comments'] %}
+                            {% for comment in post['comments'] %}
+                            <tr>
+                                <td></td>
+                                <td>{{ comment['username'] }}</td>
+                                <td>
+                                    {{ comment['comment'] }}
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        {% endif %}
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <form action="/comments/{{ post['id'] }}" method="post">
+                                    <textarea name="comment" cols="50" rows="3">
+                                    </textarea>
+                                    <br>
+                                    <input value="Submit Comment" type="submit" />
+                                </form>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                        </tr>
+                    {% endfor %}
+                {% endif %}
+                </table>
+            </p>
+        </div>
+    {% else %}
+        <form action="/login" method="post">
+            <table>
+                <tr>
+                    <td><input type="text" name="username"/></td>
+                    <td><input type="password" name="password" /></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="Login" /> </td>
+                </tr>
+            </table>
+        </form>
+    {% endif %}
+</body>
+</html>
