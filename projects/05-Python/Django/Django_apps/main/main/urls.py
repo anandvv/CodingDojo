@@ -18,12 +18,16 @@ from django.contrib import admin
 from apps.time_display import views as time_displayViews
 from apps.random_word import views as random_wordViews
 from apps.survey_form import views as survey_formViews
-
+from apps.session_words import views as session_wordsViews
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^time_display/$', time_displayViews.index),
     url(r'^random_word/$', random_wordViews.index),
     url(r'^survey_form/$', survey_formViews.index),
-    url(r'^survey_form/create', survey_formViews.create)
+    url(r'^survey_form/create', survey_formViews.create),
+    url(r'^session_words/$', session_wordsViews.index),
+    url(r'^session_words/process', session_wordsViews.process),
+    url(r'^session_words/clear', session_wordsViews.clear)
 ]
+

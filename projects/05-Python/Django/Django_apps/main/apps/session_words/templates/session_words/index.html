@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Session Words</title>
+    <style type="text/css">
+        *{
+        margin: 0px;
+        padding: 0px;
+       }
+       #wrapper{
+        width: 960px;
+        background-color: silver;
+        margin: 5px auto;
+        display:block;
+        padding: 15px;
+       }
+       #left_pane{
+        height: 400px;
+        width: 450px;
+        background-color: white;
+        margin:5px;
+        padding:5px;
+        display: inline-block;
+        vertical-align: top;
+       }
+       #right_pane{
+        height: 400px;
+        width: 450px;
+        background-color: white;
+        margin:5px;
+        padding:5px;
+        display: inline-block;
+       }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="left_pane">
+            <form action="/session_words/process" method="post">
+                {% csrf_token %}
+                <p>
+                    <h2>Add a new word</h2>
+                    <input type="text" name="word" />
+                </p>
+                <p>
+                    <h3>Choose color</h3>
+                    <input type="radio" name="color" value="Red"> Red<br>
+                    <input type="radio" name="color" value="Green"> Green<br>
+                    <input type="radio" name="color" value="Blue"> Blue
+                </p>
+                <p>
+                    <h3>Show in BIG fonts!</h3>
+                    <input type="checkbox" name="isBig" value="checked" />
+                </p>
+                <p>
+                    <input type="submit" value="Add to Session" />
+                </p>
+            </form>
+        </div>
+        <div id="right_pane">
+            <form action="/session_words/clear" method="post">
+                {% csrf_token %}
+                <p>
+                    <input type="submit" value="Clear Session" />
+                </p>
+            </form>
+                {% for item in request.session.words %}
+                <p>
+                    {% if item.isBig %}
+                        <span style='color:{{item.color}}; font-size:2em'>
+                            {{item.word}}
+                        </span>
+                    {% else %}
+                        <span style='color:{{item.color}}'>
+                            {{item.word}}
+                        </span>
+                    {% endif %}
+                    <span>
+                        - added on {{item.time}}
+                    </span>
+                </p>
+                {% endfor %}
+        </div>
+
+    </div>
+</body>
+</html>
