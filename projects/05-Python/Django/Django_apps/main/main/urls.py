@@ -19,6 +19,7 @@ from apps.time_display import views as time_displayViews
 from apps.random_word import views as random_wordViews
 from apps.survey_form import views as survey_formViews
 from apps.session_words import views as session_wordsViews
+from apps.amadon import views as amadonViews
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -28,6 +29,8 @@ urlpatterns = [
     url(r'^survey_form/create', survey_formViews.create),
     url(r'^session_words/$', session_wordsViews.index),
     url(r'^session_words/process', session_wordsViews.process),
-    url(r'^session_words/clear', session_wordsViews.clear)
+    url(r'^session_words/clear', session_wordsViews.clear),
+    url(r'^amadon/$', amadonViews.index),
+    url(r'^amadon/process/$', amadonViews.process)
 ]
 

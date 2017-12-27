@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'apps.random_word',
     'apps.survey_form',
     'apps.session_words',
+    'apps.amadon',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
