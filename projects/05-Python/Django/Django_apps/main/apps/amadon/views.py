@@ -28,13 +28,16 @@ def process(request):
     if request.method == "POST":
         quantity = request.POST['quantity']
         product_id = request.POST['product_id']
-        #do some processing
+        #do some processing here that allows you to get stuff from a database, and compute the price/total etc.
         context = {
             'total': 323.00,
             'message': 'Thanks for your purchase! Your total is: '
         }
+        request.session['context'] = context
 
-        return redirect(request, "/thankyou")
+        # return render(request, "amadon/thankyou.html", context)
+        return redirect("/amadon/thankyou")
 
 def thankyou(request):
-    return render(request, "amadon/thankyou.html")
+    context = request.session['context']
+    return render(request, "amadon/thankyou.html", context)

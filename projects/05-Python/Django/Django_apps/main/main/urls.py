@@ -31,6 +31,7 @@ urlpatterns = [
     url(r'^session_words/process', session_wordsViews.process),
     url(r'^session_words/clear', session_wordsViews.clear),
     url(r'^amadon/$', amadonViews.index),
-    url(r'^amadon/process/$', amadonViews.process)
+    url(r'^amadon/process', amadonViews.process),
+    url(r'^amadon/thankyou', amadonViews.thankyou)
 ]
 
