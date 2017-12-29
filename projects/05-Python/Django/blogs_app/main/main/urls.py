@@ -15,8 +15,13 @@ Including another URLconf
 """
 from django.conf.urls import url, include #Notice that we added include
 from django.contrib import admin
+from apps.users import views as userViews
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^blogs_app/', include('apps.blogs_app.urls')) # include the urls file from each app that you create underneath
+    url(r'^blogs/', include('apps.blogs_app.urls')), # include the urls file from each app that you create underneath
+    url(r'^surveys/', include('apps.surveys.urls')),
+    url(r'^users/', include('apps.users.urls')),
+    url(r'^register', userViews.register),
+    url(r'^login', userViews.login)
 ]

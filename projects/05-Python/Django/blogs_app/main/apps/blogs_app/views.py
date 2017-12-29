@@ -14,7 +14,7 @@ def new(request):
     return HttpResponse(response)
 
 def create(request):
-    return redirect("/blogs_app/")
+    return redirect("/blogs/")
 
 def show(request, blog_id):
     response = "Placeholder to show blog entry " + blog_id
@@ -27,3 +27,8 @@ def edit(request, blog_id):
 def delete(request, blog_id):
     response = "Placeholder to delete blog entry " + blog_id
     return HttpResponse(response)
+
+def register(request):
+    response = "Placeholder for users to create a new user record"
+    return HttpResponse(response)
+
