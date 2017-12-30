@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'apps.session_words',
     'apps.amadon',
     'apps.user_login',
+    'apps.dojo_ninjas',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
