@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'apps.survey_form',
     'apps.session_words',
     'apps.amadon',
+    'apps.user_login',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
