@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Details for {{user.username}}</title>
+</head>
+<body>
+    {% if edit %}
+        <form method="POST" action="">
+            {% csrf_token %}
+            <input type="text" name="username" value="{{user.username}}">
+            <input type="text" name="first_name" value="{{user.first_name}}">
+            <input type="text" name="last_name" value="{{user.last_name}}">
+            <input type="submit" value="Update">
+        </form>
+    {% else %}
+        <p>{{user.id}}</p>
+        <p>{{user.username}}</p>
+        <p>{{user.first_name}}</p>
+        <p>{{user.last_name}}</p>
+        <p>{{user.created_at}}</p>
+        <p>{{user.updated_at}}</p>
+    {% endif %}
+</body>
+</html>

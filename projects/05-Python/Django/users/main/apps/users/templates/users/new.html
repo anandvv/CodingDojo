@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form method="POST" action="/users/create">
+        {% csrf_token %}
+        <input type="text" name="username">
+        <input type="text" name="first_name">
+        <input type="text" name="last_name">
+        <input type="submit" value="Create">
+</form>
+<p><a href="/users/">Go Back</a></p>
+</body>
+</html>
