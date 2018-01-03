@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add a student to all boocamp courses</title>
+</head>
+<body>
+    <p>
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </p>
+    <p>
+        <h2>Add a new course</h2>
+        <form action="/courses/new" method="post">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <td>Name:</td>
+                    <td><input type="text" name="name" /> </td>
+                </tr>
+                <tr>
+                    <td>Description:</td>
+                    <td><textarea name="description" rows="4" cols="50"> </textarea></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="Add" /> </td>
+                </tr>
+            </table>
+        </form>
+    </p>
+    <p>
+        <table border="1">
+            <thead>
+                <th>Course Name</th>
+                <th>Course Description</th>
+                <th>Created at</th>
+                <th>Actions</th>
+            </thead>
+            <tbody>
+                {% for course in courses %}
+                <tr>
+                    <td>{{course.course_name}}</td>
+                    <td>{{course.description.description}}</td>
+                    <td>{{course.created_at}}</td>
+                    <td><a href="/courses/{{course.id}}/delete">Remove</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </p>
+</body>
+</html>
