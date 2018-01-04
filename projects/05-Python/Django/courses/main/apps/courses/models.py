@@ -42,5 +42,3 @@ class Description(models.Model):
     objects = DescriptionManager()
     # *************************
 
-
-
